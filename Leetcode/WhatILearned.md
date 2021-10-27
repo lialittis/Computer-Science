@@ -1,5 +1,18 @@
 # What I Learned From LeetCode [CPP]
 
+## math
+
+### << or >>
+
+```
+int power = 0;
+int value = 1;
+for(...){
+    power += 1;
+    value += (1<<power); // which is actually +2^i
+}
+```
+
 ## vector
 
 ### concatenate two vectors
@@ -63,3 +76,37 @@ a (changable) tree; also, it could be used to store its value temporarily.
 
 "clone" used to create a new variable with the same value but differen addresses.
 
+## Algorithms in <algorithm>
+
+### swap
+
+```C++
+template<class T>
+void swap(T &a, T &b)
+{
+    T temp = a;
+    a = b;
+    b = temp;
+}
+```
+
+- Examples : 
+
+```
+void swap(int &a, int &b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+```
+
+- Remind : Quick Method for SWAP integer
+
+```
+int a = 17;
+int b = 6;
+a = a ^ b;
+b = a ^ b;
+a = a ^ b;
+```
