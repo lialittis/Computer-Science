@@ -76,6 +76,27 @@ a (changable) tree; also, it could be used to store its value temporarily.
 
 "clone" used to create a new variable with the same value but differen addresses.
 
+## queue
+
+### priority_queue
+
+```C++
+template<
+    class T,
+    class Container = std::vector<T>,
+    class Compare = std::less<typename Container::value_type>
+> class priority_queue;
+```
+
+## lambda function
+
+### cmp
+
+```C++
+auto cmp = [](int left, int right) { return (left ^ 1) < (right ^ 1); };
+```
+
+
 ## Algorithms in <algorithm>
 
 ### swap
