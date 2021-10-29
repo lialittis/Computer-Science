@@ -4,6 +4,8 @@
 
 ### << or >>
 
+#### 2^i
+
 ```
 int power = 0;
 int value = 1;
@@ -130,4 +132,44 @@ int b = 6;
 a = a ^ b;
 b = a ^ b;
 a = a ^ b;
+```
+
+### sort
+
+It is quick, and often be used to sort vector.
+
+```
+sort(l.begin(),l.end());
+```
+
+#### overload operator <
+
+In the type of element of that vector, we could redefine the operator, in order to
+change the way of sorting. For example,
+
+```
+bool operator < (const TPoint& rhs) const {
+    return time < rhs.time || (time == rhs.time && flag < rhs.flag); 
+}
+```
+
+or
+
+```C++
+class Employee{
+    int id;
+    string name;
+    string secName;
+
+    bool operator<(Employee a, Employee b)
+    {
+        if (a.id < b.id) return true;
+        if (a.id > b.id) return false;
+        if (a.name < b.name) return true;
+        if (a.name > b.name) return false;
+        if (a.secName < b.secName) return true;
+        return false;
+    }
+}
+
 ```
