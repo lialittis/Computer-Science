@@ -98,6 +98,15 @@ template<
 auto cmp = [](int left, int right) { return (left ^ 1) < (right ^ 1); };
 ```
 
+### to use in priority_queue
+
+```C++
+// using lambad to compare elements
+// make a heap with top of earliest finished meeting currently
+auto comp = [](Interval i1, Interval i2) {return i1.end > i2.end; };
+priority_queue<Interval,vector<Interval>, decltype(comp)> heap(comp);
+```
+
 
 ## Algorithms in <algorithm>
 
@@ -113,7 +122,7 @@ void swap(T &a, T &b)
 }
 ```
 
-- Examples : 
+- Examples :
 
 ```
 void swap(int &a, int &b)

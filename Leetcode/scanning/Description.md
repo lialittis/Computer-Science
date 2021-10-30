@@ -97,4 +97,42 @@ Output : [[0,1],[6,7]]
 
 ### implement
 
+## non-overlapping Intervals
+
+Given a collection of intervals, find the minimum number of intervals you neet to remove to
+make the rest of the intervals non-overlapping.
+
+
+### Example
+
+Input : [[1,2],[2,3],[3,4],[1,3]]
+
+Output : 1
+
+### implementation
+
+- sort by end times
+- iteratively compare the last end time and current start time
+
+## remove covered intervals
+
+Retrun the numer of rest intervals.
+
+Similarly as the previous one; sort by start time inscreasing, end time decreasing.
+
+## Data Stream as Disjoint Intervals
+
+Given a data stream input of non-negative integers a1,a2,..., summarize the numbers seen so
+far as a list of disjoint intervals.
+
+For example, suppose the integers from the data stream are 1,3, 7,2,6,..., then the summary
+will be:
+```
+[1,1]
+[1,1], [3,3]
+[1,1], [3,3]
+[1,3], [7,7]
+[1,3], [6,7]
+...
+```
 
