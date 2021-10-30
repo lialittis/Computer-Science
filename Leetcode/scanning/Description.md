@@ -81,4 +81,20 @@ Input : intervals = [[1,3],[6,9]], newInterval = [2,5]
 Output : [[1,5],[6,9]]
 
 
+## remove interval
+
+Given a sorted list of disjoint intervals.
+
+We remove the intersections between any interval in intervals and the interval toBeRemoved.
+
+Return a sorted list of intervals.
+
+### Example
+
+Input : intervals = [[0,2],[3,4],[5,7]], toBeRemoved = [1,6]
+
+Output : [[0,1],[6,7]]
+
+### implement
+
 

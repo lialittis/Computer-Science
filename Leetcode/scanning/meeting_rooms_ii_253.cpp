@@ -68,6 +68,9 @@ public:
   }
 };
 
+// Another worser solution
+// sort both by starts and ends
+
 int main(){
   Solution sol;
   SolutionPQ solpq;
