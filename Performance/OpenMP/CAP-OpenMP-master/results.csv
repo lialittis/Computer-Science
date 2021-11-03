@@ -1,0 +1,7 @@
+Matrix size;Schedule type;Total time;Operations time;
+10;static;0.000782;0.000772;
+100;static;0.002145;0.001741;
+3;static;0.000764;0.000759;
+1000;static;0.042825;0.027767;
+1000;static;0.043912;0.028169;
+1000;static;0.042954;0.028341;
