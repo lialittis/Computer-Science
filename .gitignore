@@ -53,3 +53,4 @@ dkms.conf
 
 # Useless folder
 __MACOSX
+*.zip
