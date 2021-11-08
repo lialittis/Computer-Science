@@ -54,3 +54,6 @@ dkms.conf
 # Useless folder
 __MACOSX
 *.zip
+
+# vscode
+.vscode
