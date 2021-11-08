@@ -14,26 +14,26 @@ public:
         res = tasks.size();
         maxSessionTime = sesstionTime;
         vector<int> sessions(res);
-        dfs(tasks,sessions,tasks.size()-1,0);
+        dfs(tasks,sessions,tasks.size()-1);
         return res;
     }
 
-    void dfs(vector<int> tasks, vector<int>& sessions, int pos,int count){
+    void dfs(vector<int> tasks, vector<int>& sessions, int pos){
         if(sessions.size() > res) return; // prune global min
         if(pos < 0) {
             res = min(res,(int)sessions.size());
             return;
         }
 
-        for(int i=0;i<count;i++){
+        for(int i=0;i<sessions.size();i++){
             if(sessions[i]+tasks[pos] <= maxSessionTime){
                 sessions[i] += tasks[pos];
-                dfs(tasks,sessions,pos-1,count+1);
+                dfs(tasks,sessions,pos-1);
                 sessions[i] -= tasks[pos];
             }
-            sessions[count] += tasks[pos];
-            dfs(tasks,sessions,pos-1,count+1);
-            sessions[count] -= tasks[pos];
+            sessions.push_back(tasks[pos]);
+            dfs(tasks,sessions,pos-1);
+            sessions.push_back(tasks[pos]);
         }
     }
 
