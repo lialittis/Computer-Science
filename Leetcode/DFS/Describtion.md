@@ -70,3 +70,55 @@ backtrack :
     when i == nums.size()-1:
         add nums to res
 ```
+## find minimum time to finish all jobs
+
+### implementation
+
+keys : sort ; assign from the biggest ; prune
+
+prunes : sort ; too large value ; redundant steps (same tasks for different workers)
+
+
+## minimum number of work sessions to finish the tasks
+
+n tasks,
+
+## conclusion
+
+剪枝的题目也可以用二分法或状态压缩dp来做。
+
+常见剪枝方法 ： 
+1. sort倒序
+2. global的result更新
+3. 跳过重复元素
+4. 改变搜索思路，单向遍历较多的task可以大幅提升速度。一般大的数据单向遍历，小的数据增加backtracking的遍历。
+
+
+### 模板流程
+
+```
+int res
+public min{
+    sort;
+    dfs;
+    return res;
+}
+
+private dfs{
+    if() return; // global
+    if() return; //
+    for(){ // 常规backtracking；尝试较小部分
+        if() continue; // 重复
+        +=
+        dfs
+        -=
+    }
+}
+```
+
+## 类似题目
+
+1125
+
+1434
+
