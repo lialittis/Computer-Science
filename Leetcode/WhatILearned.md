@@ -1,5 +1,14 @@
 # What I Learned From LeetCode [CPP]
 
+## pointer
+
+### ListNode
+
+```
+ListNode* output = new ListNode(0);
+ListNode output = ListNode(0);
+```
+
 ## math
 
 ### << or >>
@@ -13,6 +22,12 @@ for(...){
     power += 1;
     value += (1<<power); // which is actually +2^i
 }
+```
+
+### n & 1
+
+```
+n%2 != 0 <=> n & 1
 ```
 
 ## vector
@@ -118,13 +133,46 @@ auto cmp = [](int left, int right) { return (left ^ 1) < (right ^ 1); };
 
 ### to use in priority_queue
 
+它的模板声明带有三个参数，priority_queue<Type, Container, Functional>
+Type 为数据类型， Container 为保存数据的容器，Functional 为元素比较方式。
+Container 必须是用数组实现的容器，比如 vector, deque 但不能用 list.
+STL里面默认用的是 vector. 比较方式默认用 operator< , 所以如果你把后面俩个
+参数缺省的话，优先队列就是大顶堆，队头元素最大。
+看例子
+
+```
+priority_queue<int> qi;
+
+    int a[len] = {3,5,9,6,2};
+
+    priority_queue<int> qi;
+    for(i = 0; i < len; i++)
+        qi.push(a[i]);
+
+    for(i = 0; i < len; i++)
+    {
+        cout<<qi.top()<<" ";
+        qi.pop();
+    }
+```
+通过<操作符可知在整数中元素大的优先级高。
+故例子中输出结果为：9 6 5 3 2
+
 ```C++
 // using lambad to compare elements
 // make a heap with top of earliest finished meeting currently
 auto comp = [](Interval i1, Interval i2) {return i1.end > i2.end; };
 priority_queue<Interval,vector<Interval>, decltype(comp)> heap(comp);
 ```
+和队列基本操作相同:
 
+top 访问队头元素
+empty 队列是否为空
+size 返回队列内元素个数
+push 插入元素到队尾 (并排序)
+emplace 原地构造一个元素并插入队列
+pop 弹出队头元素
+swap 交换内容
 
 ## Algorithms in <algorithm>
 

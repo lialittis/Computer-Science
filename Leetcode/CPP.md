@@ -1,8 +1,7 @@
-# CPP
 
-## Data Structure and methods
+# Data Structure and methods
 
-### array
+## array
 
 
 #### STL : find the max element
@@ -69,3 +68,19 @@ std::for_each(vector.begin(), vector.end(), [&] (int n) {
 for (auto& n : vector)
     sum_of_elems += n;
 ```
+
+## heap
+
+Heap is a special case of balaced binary tree data structure
+where the root-node key is compared with its children and arranged
+accordingly.
+
+Min-Heap - Where the value of the root node is less than or equal to either of
+its children
+
+Max-Heap - Where the value of the root node is higher than or equal to either
+of its children.
+
+**!!! Node at index k in array has children at indexes 2k+1 and 2k+2,
+Node at index k in array has parent at index (k-1)/2!!!**
+
