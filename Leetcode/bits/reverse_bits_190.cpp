@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <string>
 
 using namespace std;
 
@@ -11,6 +12,24 @@ public:
             n >>= 1;
         }
         return ans;
+    }
+};
+
+struct MyValue
+{
+    string text;
+    int value;
+};
+
+
+class User{
+    int age;
+public:
+    User(): age(0) {
+
+    }
+    void foo(int n) {
+        age = n;
     }
 };
 

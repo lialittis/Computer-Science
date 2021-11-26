@@ -5,6 +5,7 @@
 
 int nums[LEN] = {2,3,4,3,2,4,5,6,6};
 
+
 int main(int argc, char *argv[]) {
   int target = 0;
 
