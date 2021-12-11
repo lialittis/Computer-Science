@@ -15,7 +15,7 @@ int minimumTotal1(vector<vector<int>> triangle){
 
     return dp[0][0];
 }
-
+ 
 // recursive 2d
 
 
