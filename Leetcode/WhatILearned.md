@@ -1,6 +1,39 @@
 # What I Learned From LeetCode [CPP]
 
-## pointer
+# Ref 
+LeetCode刷题解题答案.pdf
+
+## Programming Skills
+
+1. `fabs(a - b) < 1e-9` | `a==b`
+
+when you want to compare two floats, please don't use `a==b`,
+but `fabs(a-b)` a small boundary.
+
+2. `n % 2 != 0` | `n % 2 == 1`
+
+odd numbers could be judged by both;
+negative odd numbers should only use the first formula.
+
+3. `n & 1` & `n % 2 !=0`
+
+they are equal.
+
+4. `char` could be negative
+
+if you want to use `char` as indice of an array, e.g. counting
+characters' apprearances, we should transfer them to `unsigned
+char` and then use as indice.
+
+5. `vector` and `string` structure are priory than dynamic 
+allocated `array` structure
+
+`vector` is continuous in memory;
+if using `new` for array, you have to remember `delete`;
+multiple dynamic arrays need `new` them one by one, while 
+`vector` does the job in one line.
+
+## Linear Tables
 
 ### ListNode
 
@@ -11,7 +44,7 @@ ListNode output = ListNode(0);
 
 ## math
 
-### << or >>
+### `<<` or `>>`
 
 #### 2^i
 
@@ -24,11 +57,6 @@ for(...){
 }
 ```
 
-### n & 1
-
-```
-n%2 != 0 <=> n & 1
-```
 
 ## vector
 

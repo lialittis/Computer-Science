@@ -1,7 +1,7 @@
 
-# Data Structure and methods
+# Linear Tables
 
-## array
+## Array
 
 
 #### STL : find the max element
