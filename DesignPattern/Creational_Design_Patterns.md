@@ -59,11 +59,11 @@ subclasses.
 
 - Avoid tight coupling between the creator and the concrete products
 - Single Responsiblity Principle
-- Open/Close Principle : new types of products without breaking existing client code
+- Open/Closed Principle : new types of products without breaking existing client code
 
 ### Cons
 
-- The code may becom more complicated since you need to introduce a lot of new subclasses.
+- The code may become more complicated since you need to introduce a lot of new subclasses.
 The best case scenario is when you're introducing the pattern into an existing hierarchy of
 creator classes.
 
@@ -80,12 +80,11 @@ is based on inheritance but doesn't require an initialization step.
 
 # Abstract Factory
 
-It lets you produce **families of related objects without specifying their concrete
-classes**.
+It lets you produce **families of related objects without specifying their concrete classes**.
 
 ## Motivation
 
-You have a family of related products to produce.
+You have families of related products to produce.
 
 The client doesn't want to be aware of the factory's class.
 
@@ -128,7 +127,7 @@ object.
 
 ### Pros
 
-- You can be sure that the products you're getting from a factory are compatible with eahc other
+- You can be sure that the products you're getting from a factory are compatible with each other
 
 - Avoid tight coupling between concrete products and client code
 
@@ -155,15 +154,109 @@ It lets you construct **complex objects step by step**. The pattern allows you t
 **different types and representations of an object** using the same construction code.
 
 
+## Motivation
+
+You want to build a complex object that requires laborious, step-by-setp initialization of
+many fields and nested objects.
+
+Possible Solutions :
+- create a set of subclasses to cover all combinations of the parameters
+- or create a giant constructor right in the base class with all possible parameters
+
+Good Solution:
+- extract the object construction code out of its own class and move it to separate objects
+
+To create an object, you execute a series of steps on a **builder** object. Some of the
+construction steps might require different implementation when you need to build various
+representations of the product. In this case, you can create several different builder 
+classes that implement the same set of building steps, but in a different manner.
+
+To go further, you can extract a series of calls to the builder steps you use to construct
+a product into a seperate class called **director**.
+
+## Structure
+
+1. The **Builder** interface declares product construction steps that are common to all
+types of builders.
+
+2. **Concrete Builders** provide different implementations of the construction steps.
+
+3. **Products** are resulting objects.(constructed by different builders, don't have to
+belong to the same class hierarchy or interface)
+
+4. The **Director** class defines the order in which to call construction steps, so you can
+create and reuse specific configurations of products.
+
+5. The **Client** must associate one of the builder objects with the director.
+
+## Applicability
+
+**Use the Builder pattern to get rid of a "telescoping constructor"**
+
+**Use the Builder pattern when you want your code to be able to create different
+representations of some products (for example, stone and wooden houses).**
+
+**Use the Builder to construct Composite trees or other complex objects**
+
+
+## Pros and Cons
+
+### Pros
+
+- construct objects step-by-step, defer construction steps or run steps recursively
+- reuse the same construction code when building various representations of products
+- Single Responsibility Principle. (isolate complex construction code from the business
+logic of the product)
+
+### Cons
+
+The overall complexity of the code increases since the pattern requires creating multiple
+new classes.
+
 # Prototype
 
 It lets you copy existing objects without making your code dependent on their classes.
 
+## Motivation
+
+You have an object, you want to create an exact copy of it.
+
+Solution:
+
+The pattern declares a common interface for all objects that support cloning. This interface
+lets you clone an object without coupling your code to the class of that object.
+
+An object that supports cloning is called a *prototype*. When your objects have dozens of 
+fields and hundreds of possible configurations, cloning them might serve as an alternative to
+subclassing.
+
+Here’s how it works: you create a set of objects, configured in various ways. When you need an
+object like the one you’ve configured, you just clone a prototype instead of constructing a new 
+object from scratch.
+
+## Structure
+
+### Basic Implementation
+
+
+### Prototype registry implementation
 
 # Singleton
 
 It lets you ensure that a class has only one instance, while providing a global access
 point to this instance.
 
+## Motivation
 
+The **Singleton pattern** solves two problems at the same time, violating the *Single Responsibility
+Principle*:
+
+1. Ensure that a class has just a single instance
+
+2. Provide a global access point to that instance
+
+Solution:
+- make the default constructor private, to prevent other objects from using the new operator
+with the Singleton class.
+- create a static creation method that acts as a constructor.
 
